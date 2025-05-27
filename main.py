@@ -25,6 +25,7 @@ def get_song_info(player_service):
 
         title = metadata.get("xesam:title", "Unknown Title")
         artists = metadata.get("xesam:artist", ["Unknown Artist"])
+        album = metadata.get("xesam:album", "Unknown Album")
         artist = artists[0] if artists else "Unknown Artist"
         art_url = metadata.get("mpris:artUrl", "No cover art")
         duration = metadata.get("mpris:length", 0)  # microseconds
@@ -36,6 +37,7 @@ def get_song_info(player_service):
             "player": player_service.replace("org.mpris.MediaPlayer2.", ""),
             "status": status,
             "title": title,
+            "album": album,
             "artist": artist,
             "art_url": art_url,
             "position": position_sec,
@@ -70,3 +72,33 @@ def main():
 @app.route("/get", methods=('GET', 'POST'))
 def songInfo():
     return replaceInfo()
+
+@app.route("/playback", methods=('GET', 'POST'))
+def playback():
+    players = get_active_mpris_players()
+    for player in players:
+        session_bus = dbus.SessionBus()
+        player = session_bus.get_object(player, "/org/mpris/MediaPlayer2")
+        iface = dbus.Interface(player, dbus_interface="org.mpris.MediaPlayer2.Player")
+        iface.PlayPause()
+        return replaceInfo()
+
+@app.route("/next", methods=('GET', 'POST'))
+def next():
+    players = get_active_mpris_players()
+    for player in players:
+        session_bus = dbus.SessionBus()
+        player = session_bus.get_object(player, "/org/mpris/MediaPlayer2")
+        iface = dbus.Interface(player, dbus_interface="org.mpris.MediaPlayer2.Player")
+        iface.Next()
+        return replaceInfo()
+
+@app.route("/previous", methods=('GET', 'POST'))
+def previous():
+    players = get_active_mpris_players()
+    for player in players:
+        session_bus = dbus.SessionBus()
+        player = session_bus.get_object(player, "/org/mpris/MediaPlayer2")
+        iface = dbus.Interface(player, dbus_interface="org.mpris.MediaPlayer2.Player")
+        iface.Previous()
+        return replaceInfo()

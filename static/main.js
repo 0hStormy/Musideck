@@ -5,6 +5,23 @@ function httpGet(theUrl) {
     return xmlHttp.responseText;
 }
 
+function httpPost(theUrl, requestBody=null) {
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("POST", theUrl, false);
+    xmlHttp.send(requestBody);
+    return xmlHttp.responseText;
+}
+
+async function playbackChange() {
+    const response = await fetch("http://127.0.0.1:5000/playback");
+    const songJSON = await response.json();
+    if (songJSON.status == "Playing") {
+        document.getElementById('media-state').src = "/static/img/pause.svg";
+    } else {
+        document.getElementById('media-state').src = "/static/img/play.svg"
+    }
+}
+
 var lastCoverVersion = null;
 
 async function main() {
@@ -15,8 +32,9 @@ async function main() {
     if (songJSON.art_url !== lastCoverVersion) {
         lastCoverVersion = songJSON.art_url;
 
-        document.getElementById('title').innerHTML = songJSON.title
-        document.getElementById('artist').innerHTML = songJSON.artist
+        document.getElementById('title').innerHTML = songJSON.title;
+        document.getElementById('album').innerHTML = songJSON.album;
+        document.getElementById('artist').innerHTML = songJSON.artist;
         document.getElementById('cover').src = `/static/cover.png${cacheBust}`;
         document.querySelector('body').style.backgroundImage = `url("/static/cover.png${cacheBust}")`;
     }
@@ -24,7 +42,7 @@ async function main() {
     if (songJSON.status == "Playing") {
         document.getElementById('media-state').src = "/static/img/pause.svg";
     } else {
-        document.getElementById('media-state').src = "/static/img/play.svg"
+        document.getElementById('media-state').src = "/static/img/play.svg";
     }
     document.getElementById('bar').style.width = `${(songJSON.position / songJSON.duration) * 100}%`;
 

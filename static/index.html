@@ -10,13 +10,20 @@
 <body>
     <div class="root">
         <div class="vert">
-            <img id="cover" src="static/cover.png" alt="Cover art">
-            <h1 id="title">$title</h1>
-            <h2 id="artist">$artist</h2>
+            <img id="cover" class="cover" src="static/cover.png" alt="Cover art">
+            <div class="vert">
+                <h1 id="title">$title</h1>
+                <h2 id="album">$album</h2>
+                <h2 id="artist">$artist</h2>
+            </div>
             <div class="progress-container">
                 <div id="bar" class="progress-bar" style="width: 0%;"></div>
             </div>
-            <img id="media-state" class="media-state" src="static/img/play.svg" alt="">
+            <div class="hori">
+                <img id="previous" onclick="httpGet('http://127.0.0.1:5000/previous')" class="media-state" src="static/img/previous.svg" alt="">
+                <img onclick="playbackChange()" id="media-state" class="media-state" src="static/img/play.svg" alt="">
+                <img id="next" onclick="httpGet('http://127.0.0.1:5000/next')" class="media-state" src="static/img/next.svg" alt="">
+            </div>
         </div>
     </div>
     <script src="static/main.js"></script>
