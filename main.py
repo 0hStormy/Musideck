@@ -69,6 +69,11 @@ app = Flask(__name__)
 def main():
     return readFile("static/index.html")
 
+@app.route("/settings", methods=('GET', 'POST'))
+def settings():
+    return readFile("static/settings.html")
+
+
 @app.route("/get", methods=('GET', 'POST'))
 def songInfo():
     return replaceInfo()

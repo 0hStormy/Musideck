@@ -44,12 +44,38 @@ body {
   transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
 }
 
+
 .media-state:hover {
     background-color: #ffffff22;
     transform: scale(1.1);
 }
 
 .media-state:active {
+    background-color: #ffffff22;
+    transform: scale(0.9);
+}
+
+.settings-icon {
+  all: unset;
+  height: 48px;
+  margin: 8px;
+  padding: 8px;
+  background-color: #ffffff00;
+  opacity: 0.25;
+  border-radius: 48px;
+  transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.settings-icon:hover {
+    background-color: #ffffff22;
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.settings-icon:active {
     background-color: #ffffff22;
     transform: scale(0.9);
 }
