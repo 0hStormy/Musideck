@@ -14,7 +14,7 @@ function httpPost(theUrl, requestBody=null) {
 
 async function reconnect() {
     try {
-        const response = await fetch("http://127.0.0.1:5000/");
+        const response = await fetch(window.location.href);
 
         if (response.ok) {
             location.reload()
@@ -26,7 +26,7 @@ async function reconnect() {
 }
 
 async function playbackChange() {
-    const response = await fetch("http://127.0.0.1:5000/playback");
+    const response = await fetch(`${window.location.href}/playback`);
     const songJSON = await response.json();
     if (songJSON.status == "Playing") {
         document.getElementById('media-state').src = "/static/img/pause.svg";
@@ -39,7 +39,7 @@ var lastCoverVersion = null;
 
 async function main() {
     try {
-        const response = await fetch("http://127.0.0.1:5000/get");
+        const response = await fetch(`${window.location.href}/get`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);

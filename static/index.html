@@ -21,9 +21,9 @@
                 <div id="bar" class="progress-bar" style="width: 0%;"></div>
             </div>
             <div class="hori">
-                <img id="previous" onclick="httpGet('http://127.0.0.1:5000/previous')" class="media-state" src="static/img/previous.svg" alt="">
+                <img id="previous" onclick="httpGet(`${window.location.href}/previous`)" class="media-state" src="static/img/previous.svg" alt="">
                 <img onclick="playbackChange()" id="media-state" class="media-state" src="static/img/play.svg" alt="">
-                <img id="next" onclick="httpGet('http://127.0.0.1:5000/next')" class="media-state" src="static/img/next.svg" alt="">
+                <img id="next" onclick="httpGet(`${window.location.href}/next`)" class="media-state" src="static/img/next.svg" alt="">
             </div>
         </div>
     </div>
