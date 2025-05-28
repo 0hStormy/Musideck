@@ -73,7 +73,6 @@ def main():
 def settings():
     return readFile("static/settings.html")
 
-
 @app.route("/get", methods=('GET', 'POST'))
 def songInfo():
     return replaceInfo()

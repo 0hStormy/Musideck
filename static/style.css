@@ -131,3 +131,23 @@ h1 {
 h2 {
   font-size: 14pt;
 }
+
+button {
+  all: unset;
+  height: 48px;
+  margin: 8px;
+  padding: 4px 16px;
+  background-color: #ffffff11;
+  border-radius: 48px;
+  transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
+}
+
+button:hover {
+  background-color: #ffffff22;
+  transform: scale(1.1);
+}
+
+button:active {
+  background-color: #ffffff22;
+  transform: scale(0.9);
+}
