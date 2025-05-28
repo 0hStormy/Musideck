@@ -12,6 +12,7 @@ body {
     font-family: 'Noto Sans', Arial, serif;
     background-image: url(cover.png);
     backdrop-filter: brightness(0.5) blur(64px);
+    -webkit-backdrop-filter: brightness(0.5) blur(64px);
     color: white;
     background-size: 512px 512px;
     text-align: center;
