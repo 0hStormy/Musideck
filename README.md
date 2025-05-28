@@ -2,7 +2,8 @@
 
 See what's playing currently, with a bit of eye candy!
 
-![Like Him from CHROMAKOPIA being showed through Musideck](demo.png)
+Musideck running on desktop:
+![Musideck desktop screenshot](demo.png)
 
 # How to use
 
