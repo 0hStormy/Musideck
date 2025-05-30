@@ -17,11 +17,6 @@ body {
     background-size: 512px 512px;
     text-align: center;
     animation: scroll-diagonal 30s linear infinite;
-    @media (prefers-color-scheme: light) {
-      backdrop-filter: brightness(1.5) blur(64px);
-      -webkit-backdrop-filter: brightness(1.5) blur(64px);
-      color: #444444;
-  }
 }
 
 .root {
@@ -48,19 +43,17 @@ body {
   background-color: #ffffff11;
   border-radius: 48px;
   transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
-  @media (prefers-color-scheme: light) {
-    filter: invert();
-  }
 }
 
 
 .media-state:hover {
-  background-color: #ffffff22;
-  transform: scale(1.1);
+    background-color: #ffffff22;
+    transform: scale(1.1);
 }
 
 .media-state:active {
-  transform: scale(0.9);
+    background-color: #ffffff22;
+    transform: scale(0.9);
 }
 
 .settings-icon {
@@ -75,9 +68,6 @@ body {
   position: fixed;
   bottom: 0;
   right: 0;
-  @media (prefers-color-scheme: light) {
-    filter: invert();
-  }
 }
 
 .settings-icon:hover {
@@ -107,9 +97,6 @@ body {
   overflow: hidden;
   margin: 24px;
   margin-inline: 0px;
-  @media (prefers-color-scheme: light) {
-    background: rgba(0, 0, 0, 0.25);
-  }
 }
 
 .progress-bar {
@@ -117,9 +104,6 @@ body {
   background: #ffffff;
   width: 0%;
   transition: 0.25s;
-  @media (prefers-color-scheme: light) {
-    background: #444444;
-  }
 }
 
 img {
@@ -157,19 +141,14 @@ button {
   background-color: #ffffff11;
   border-radius: 48px;
   transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
-  @media (prefers-color-scheme: light) {
-    background-color: #00000011;
-  }
 }
 
 button:hover {
   background-color: #ffffff22;
   transform: scale(1.1);
-  @media (prefers-color-scheme: light) {
-    background-color: #00000022;
-  }
 }
 
 button:active {
+  background-color: #ffffff22;
   transform: scale(0.9);
 }
