@@ -5,6 +5,12 @@ See what's playing currently, with a bit of eye candy!
 Musideck running on desktop:
 ![Musideck desktop screenshot](demo.png)
 
+# Desktop app?
+
+There is one in fact! You can use [Musideck-Electron](https://github.com/0hstormy/Musideck-Electron) to connect to your local Musideck server.
+
+![Musideck-Electron screenshot](demo-electron.png)
+
 # How to use
 
 ### Prerequisites:
