@@ -43,7 +43,6 @@ function timeFormat(duration) {
   return ret;
 }
 
-
 async function playbackChange() {
     const response = await fetch(`${window.location.href}/playback`);
     const songJSON = await response.json();
