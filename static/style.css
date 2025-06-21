@@ -10,7 +10,7 @@
 body {
     margin: 0;
     font-family: 'Noto Sans', Arial, serif;
-    background-image: url(cover.png);
+    background: linear-gradient(to bottom right, #B6F68E, #548BDD);
     backdrop-filter: brightness(0.5) blur(64px);
     -webkit-backdrop-filter: brightness(0.5) blur(64px);
     color: white;
@@ -96,6 +96,7 @@ body {
   border-radius: 24px;
   overflow: hidden;
   margin: 24px;
+  margin-bottom: 4px;
   margin-inline: 0px;
 }
 
@@ -104,6 +105,11 @@ body {
   background: #ffffff;
   width: 0%;
   transition: 0.25s;
+}
+
+.progress-text {
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 img {
@@ -131,6 +137,25 @@ h1 {
 
 h2 {
   font-size: 14pt;
+}
+
+input {
+  all: unset;
+  height: 32px;
+  margin: 8px;
+  padding: 4px 16px;
+  background-color: #ffffff11;
+  border-radius: 48px;
+  transition: cubic-bezier(0.175, 1.885, 0.320, 1.275) 0.25s;
+}
+
+input:hover {
+  background-color: #ffffff22;
+}
+
+input:active {
+  background-color: #ffffff22;
+  transform: scale(0.9);
 }
 
 button {

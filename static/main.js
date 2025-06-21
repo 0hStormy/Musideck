@@ -25,6 +25,25 @@ async function reconnect() {
     }
 }
 
+function timeFormat(duration) {
+  const hrs = ~~(duration / 3600);
+  const mins = ~~((duration % 3600) / 60);
+  const secs = ~~duration % 60;
+
+  // Output like "1:01" or "4:03:59" or "123:03:59"
+  let ret = "";
+
+  if (hrs > 0) {
+    ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+  }
+
+  ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+  ret += "" + secs;
+
+  return ret;
+}
+
+
 async function playbackChange() {
     const response = await fetch(`${window.location.href}/playback`);
     const songJSON = await response.json();
@@ -65,6 +84,7 @@ async function main() {
         }
 
         document.getElementById('bar').style.width = `${(songJSON.position / songJSON.duration) * 100}%`;
+        document.getElementById('progress-text').innerHTML = `${timeFormat(songJSON.position)}/${timeFormat(songJSON.duration)}`
     } catch (error) {
         if (error instanceof TypeError && error.message === 'Failed to fetch') {
             console.error("Failed to connect to server: ", error.message);
