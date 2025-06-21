@@ -56,7 +56,10 @@ def replaceInfo():
     for player in players:
         info = get_song_info(player)
         info["art_url"] = info["art_url"].removeprefix("file://")  
-        shutil.copyfile(info["art_url"], "static/cover.png")
+        if info["art_url"] != "No cover art":
+            shutil.copyfile(info["art_url"], "static/cover.png")
+        else:
+            shutil.copyfile("static/unknown.png", "static/cover.png")
         return json.dumps(info)
 
 def readFile(file):
