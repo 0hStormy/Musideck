@@ -72,8 +72,8 @@ async function main() {
             document.getElementById('title').innerHTML = songJSON.title;
             document.getElementById('album').innerHTML = songJSON.album;
             document.getElementById('artist').innerHTML = songJSON.artist;
-            document.getElementById('cover').src = `/static/cover.png${cacheBust}`;
-            document.querySelector('body').style.backgroundImage = `url("/static/cover.png${cacheBust}")`;
+            document.getElementById('cover').src = `/cover${cacheBust}`;
+            document.querySelector('body').style.backgroundImage = `url("/cover${cacheBust}")`;
         }
 
         if (songJSON.status == "Playing") {

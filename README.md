@@ -33,9 +33,9 @@ git clone https://github.com/0hStormy/Musideck.git && cd Musideck
 ```
 
 ### Step 2:
-Start the flask server with
+Install musideck and start it with:
 ```bash
-flask --app main run
+sudo install.sh && musideck
 ```
 
 ### Step 3:
@@ -43,4 +43,11 @@ Open a **modern** web browser and type the following in the URL bar and press en
 
 ```
 http://127.0.0.1:5000/
+```
+
+## Run a systemd service
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enable musideck.service --now
 ```

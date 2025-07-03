@@ -1,7 +1,11 @@
+#!/usr/bin/env python3
 import dbus
 import json
 import shutil
 from flask import Flask
+import os
+
+home = os.path.expanduser('~')
 
 def get_active_mpris_players():
     session_bus = dbus.SessionBus()
@@ -57,24 +61,28 @@ def replaceInfo():
         info = get_song_info(player)
         info["art_url"] = info["art_url"].removeprefix("file://")  
         if info["art_url"] != "No cover art":
-            shutil.copyfile(info["art_url"], "static/cover.png")
+            shutil.copyfile(info["art_url"], "/tmp/musideckcover.png")
         else:
-            shutil.copyfile("static/unknown.png", "static/cover.png")
+            shutil.copyfile("/usr/share/musideck/static/unknown.png", "/tmp/musideckcover.png")
         return json.dumps(info)
 
 def readFile(file):
     with open(file, "r") as f:
         return f.read()
 
-app = Flask(__name__)
+def readBytes(file):
+    with open(file, "rb") as f:
+        return f.read()
+
+app = Flask(__name__, static_folder='/usr/share/musideck/static/')
 
 @app.route("/", methods=('GET', 'POST'))
 def main():
-    return readFile("static/index.html")
+    return readFile("/usr/share/musideck/static/index.html")
 
-@app.route("/settings", methods=('GET', 'POST'))
-def settings():
-    return readFile("static/settings.html")
+@app.route("/cover", methods=('GET', 'POST'))
+def cover():
+    return readBytes("/tmp/musideckcover.png")
 
 @app.route("/get", methods=('GET', 'POST'))
 def songInfo():
@@ -109,3 +117,7 @@ def previous():
         iface = dbus.Interface(player, dbus_interface="org.mpris.MediaPlayer2.Player")
         iface.Previous()
         return replaceInfo()
+
+if __name__ == '__main__':
+    print("This is the Musideck server, if you're trying to run the client. Go download and run musideck-electron.")
+    app.run(debug=True)

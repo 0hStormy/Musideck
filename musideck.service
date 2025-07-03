@@ -1,0 +1,9 @@
+[Unit]
+Description=Musideck server, should only be ran with --user.
+
+[Service]
+ExecStart=/usr/bin/musideck
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
