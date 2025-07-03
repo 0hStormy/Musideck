@@ -38,5 +38,5 @@ Sending a `GET` request to this endpoint will request MRPIS to go to the previou
 
 This endpoint will return the same info as `/get`.
 
-### Cover Art
-Simply fetch from `https://SERVERHERE/static/cover.png` and the server will return the current cover art.
+### /cover
+Get's the current cover art as a png file
