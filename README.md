@@ -35,7 +35,7 @@ git clone https://github.com/0hStormy/Musideck.git && cd Musideck
 ### Step 2:
 Install musideck and start it with:
 ```bash
-sudo install.sh && musideck
+sudo ./install.sh && musideck
 ```
 
 ### Step 3:
@@ -50,4 +50,10 @@ http://127.0.0.1:5000/
 ```bash
 systemctl --user daemon-reload
 systemctl --user enable musideck.service --now
+```
+
+## Alternatively, run a dinit service
+
+```bash
+dinitctl --user enable musideck
 ```
