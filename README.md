@@ -45,14 +45,18 @@ Open a **modern** web browser and type the following in the URL bar and press en
 http://127.0.0.1:5000/
 ```
 
-## Run a systemd service
+## Run Musideck as a system services
+
+Musideck currently support running as a user service for systemd and dinit.
+
+### systemd
 
 ```bash
 systemctl --user daemon-reload
 systemctl --user enable musideck.service --now
 ```
 
-## Alternatively, run a dinit service
+### dinit
 
 ```bash
 dinitctl --user enable musideck
