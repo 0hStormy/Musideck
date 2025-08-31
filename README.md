@@ -1,5 +1,7 @@
 # Musideck
 
+## Musideck has moved off GitHub, go to https://git.0stormy.xyz/Stormy/Musideck
+
 See what's playing currently, with a bit of eye candy!
 
 Musideck running on desktop:
